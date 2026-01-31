@@ -1,0 +1,228 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Times New Roman", serif;
+}
+
+body{
+    background:#f4f6f8;
+    color:#222;
+}
+
+/* ===== HEADER ===== */
+.top-header{
+    display:flex;
+    gap:20px;
+    padding:20px 30px;
+    background:#ffffff;
+    border-bottom:4px solid #cfa34a; /* Golden underline */
+}
+
+.logo img{ width:80px; }
+
+.header-text{
+    flex:1;
+    text-align:center;
+}
+
+.header-text h1{
+    font-size:20px;
+    color:#0b3c5d;
+}
+
+/* ===== NEWS ===== */
+.news-ticker{
+    background:#cfa34a;
+    padding:8px;
+    font-weight:bold;
+    color:#000;
+}
+
+/* ===== MENU ===== */
+.menu-bar{ 
+    background:#08324f;
+}
+
+.menu{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:14px;
+}
+
+.menu li{ position:relative; }
+
+.menu a{
+    color:#ffffff;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:600;
+}
+
+.menu a:hover{
+    color:#cfa34a;
+}
+
+/* ===== DROPDOWN ===== */
+.dropdown-menu{
+    position:absolute;
+    top:35px;
+    left:0;
+    background:#ffffff;
+    min-width:200px;
+    display:none;
+    border-radius:8px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    z-index:100;
+}
+
+.dropdown-menu a{
+    color:#08324f;
+    padding:12px;
+    display:block;
+}
+
+.dropdown-menu a:hover{
+    background:#cfa34a;
+    color:#000;
+}
+
+.dropdown:hover .dropdown-menu{
+    display:block;
+}
+
+/* ===== HERO ===== */
+.faculty-hero{
+    background:linear-gradient(to right, #003366, #0b4f8a);
+    color:white;
+    text-align:center;
+    padding:55px 20px;
+}
+
+.faculty-hero h2{
+    font-size:36px;
+}
+
+.faculty-hero p{
+    font-size:18px;
+}
+
+/* ===== ABOUT BOX ===== */
+.about-box{
+    max-width:900px;
+    margin:40px auto;
+    background:white;
+    padding:40px;
+    border-radius:16px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    text-align:center;
+    border:3px solid #cfa34a; /* Golden border */
+}
+
+.underline{
+    width:70px;
+    height:4px;
+    background:#cfa34a;
+    margin:12px auto 20px;
+}
+
+/* ===== MOTTO BOX ===== */
+.motto{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    font-size:22px;
+    font-style:italic;
+    color:#0b3c66;
+    padding:30px;
+    border:3px solid #cfa34a; /* Golden border all around */
+    border-radius:16px;
+    margin:40px auto;
+    max-width:900px;
+}
+
+/* ===== VISION / MISSION CARDS ===== */
+.vm-section{
+    max-width:1000px;
+    margin:50px auto;
+    display:flex;
+    gap:40px;
+    padding:0 20px;
+}
+
+.vm-card{
+    flex:1;
+    background:white;
+    padding:35px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    border:3px solid #cfa34a; /* Golden border */
+    transition:.4s;
+}
+
+.vm-card:hover{
+    transform:translateY(-8px);
+}
+
+.vm-card i{
+    font-size:34px;
+    color:#0b3c66;
+    margin-bottom:10px;
+}
+
+/* ===== VALUES SECTION ===== */
+.values{
+    background:#0b3c66;
+    color: white;
+    padding:40px 20px;
+    text-align:center;
+}
+
+.values-row{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin-top:20px;
+}
+
+.values-row div{
+    font-size:16px;
+    font-weight:600;
+    border:2px solid #cfa34a; /* Golden border around each value */
+    padding:10px 15px;
+    border-radius:10px;
+}
+
+.values-row i{
+    color:#cfa34a;
+    margin-right:6px;
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-up{ animation:fadeUp 3s; }
+.fade-left{ animation:fadeLeft 5s; }
+.fade-right{ animation:fadeRight 5s; }
+.slide-in{ animation:slideIn 4s; }
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeLeft{
+    from{opacity:0; transform:translateX(-40px);}
+    to{opacity:1;}
+}
+
+@keyframes fadeRight{
+    from{opacity:0; transform:translateX(40px);}
+    to{opacity:1;}
+}
+
+@keyframes slideIn{
+    from{opacity:0; letter-spacing:5px;}
+    to{opacity:1; letter-spacing:1px;}
+}

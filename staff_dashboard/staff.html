@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DCA – Staff Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+ <link rel="stylesheet" href="../main_dashboard/dashboard.css">
+  <link rel="stylesheet" href="../staff_dashboard/staff.css">
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="top-header">
+    <div class="logo">
+        <img src="..images/logo.png">
+    </div>
+    <div class="header-text">
+        <h1>JAYARAJ ANNAPACKIAM COLLEGE FOR WOMEN (AUTONOMOUS)</h1>
+        <p>(A unit of the Sisters of St. Anne of Tiruchirappalli)</p>
+        <p>Accredited with A+ Grade in 4<sup>th</sup> Cycle by NAAC</p>
+        <p>PERIYAKULAM – 625 601, THENI DT., TAMILNADU.</p>
+    </div>
+</header>
+
+<!-- ===== STAFF MODE BAR ===== -->
+<div class="staff-mode">
+    Logged in as <strong>Staff</strong>
+</div>
+
+<!-- ===== MENU BAR ===== -->
+<nav class="menu-bar">
+<ul class="menu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="faculty.html">Faculty</a></li>
+    <li><a href="#">Courses</a></li>
+    <li><a href="#">Digital Infrastructure</a></li>
+    <li><a href="#">Spotlight Zone</a></li>
+    <li><a href="#">Activity Archive</a></li>
+    <li><a href="#">Reach Us</a></li>
+    <li><a href="../main_dashboard/dashboard.html" class="logout-btn">Logout</a></li>
+</ul>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+<div class="hero-content">
+    <h2>Department of Computer Applications</h2>
+    <p class="hero-tagline">Staff Edit Mode</p>
+</div>
+</section>
+
+<!-- ===== INFO BOXES ===== -->
+<section class="info-boxes">
+
+<div class="box">
+    <h3>Welcome Message</h3>
+    <p>Strong foundation in programming and software development.</p>
+    <div class="staff-actions">
+        <button onclick="openPopup(this)">Edit</button>
+    </div>
+</div>
+
+<div class="box">
+    <h3>Programs Offered</h3>
+    <p>BCA with Python, Java, Web Development.</p>
+    <div class="staff-actions">
+        <button onclick="openPopup(this)">Edit</button>
+    </div>
+</div>
+
+<div class="box">
+    <h3>Announcements</h3>
+    <p>Assessments, Workshops, Guest Lectures.</p>
+    <div class="staff-actions">
+        <button>Add</button>
+        <button onclick="openPopup(this)">Edit</button>
+        <button>Delete</button>
+    </div>
+</div>
+
+</section>
+
+<!-- ===== EVENTS SECTION ===== -->
+<section class="events">
+<h2 class="events-title">Upcoming Events</h2>
+
+<div class="staff-actions center">
+    <button onclick="openModal()">Add Event</button>
+</div>
+
+<div class="event-slider">
+<div class="event-track">
+    <!-- JS will dynamically add events here -->
+</div>
+</div>
+</section>
+
+<!-- ===== HOD SECTION ===== -->
+<section class="hod-section">
+<h2 class="section-title">Head of the Department</h2>
+<div class="hod-container">
+    <img src="../images/clg.webp">
+    <div>
+        <p><strong>Dr. XYZ</strong></p>
+        <p>Focus on quality education and industry learning.</p>
+    </div>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+Department of Computer Applications © 2025
+</footer>
+
+<!-- ===== ADD EVENT MODAL ===== -->
+<div class="modal" id="eventModal">
+  <div class="modal-content">
+    <h3>Add New Event</h3>
+
+    <input type="text" id="eventName" placeholder="Event Name">
+    <input type="text" id="eventDate" placeholder="Event Date & Time">
+    <input type="text" id="eventImage" placeholder="Image path (images/event.jpg)">
+
+    <div class="modal-actions">
+      <button onclick="saveEvent()">Save</button>
+      <button onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ===== EDIT POPUP ===== -->
+<div class="edit-popup" id="editPopup">
+  <div class="edit-box">
+    <h3>Edit Content</h3>
+    <textarea id="editText"></textarea>
+    <br><br>
+    <button onclick="closePopup()">Cancel</button>
+    <button onclick="saveEditInfoBox()">Save</button> <!-- <- Correct function -->
+  </div>
+</div>
+
+
+
+<!-- ===== STAFF JS ===== -->
+<script src="../staff_dashboard/staff.js"></script>
+</body>
+</html>

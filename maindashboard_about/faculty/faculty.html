@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DCA – Department Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../faculty/faculty.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="top-header">
+    <div class="logo">
+        <img src="../images/logo.png" alt="Logo">
+    </div>
+    <div class="header-text">
+        <h1>JAYARAJ ANNAPACKIAM COLLEGE FOR WOMEN (AUTONOMOUS)</h1>
+        <p>(A unit of the Sisters of St. Anne of Tiruchirappalli)</p>
+        <p>Accredited with A+ Grade in 4<sup>th</sup> Cycle by NAAC</p>
+        <p>PERIYAKULAM – 625 601, THENI DT., TAMILNADU.</p>
+    </div>
+</header>
+
+<!-- ===== NEWS ===== -->
+<div class="news-ticker">
+    <marquee>📢 Internal Assessment – 20 Jan | 🎓 AI Workshop – 25 Jan | 🖥️ Coding Contest – Register Now</marquee>
+</div>
+
+<!-- ===== MENU ===== -->
+<nav class="menu-bar">
+    <ul class="menu">
+        <li><a href="../main_dashboard/dashboard.html">Home</a></li>
+        <li><a href="/maindashboard_about/about.html">About</a></li>
+        <li><a href="../maindashboard_about/faculty/faculty.html">Faculty</a></li>
+
+        <li class="dropdown">
+            <a href="#">Courses ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">BCA Syllabus</a></li>
+                <li><a href="#">Certificate Courses</a></li>
+            </ul>
+        </li>
+
+        <li><a href="../maindashboard_about/digitalinfrastructure/digitalinfrastructure.html">Digital Infrastructure</a></li>
+        <li><a href="#">Spotlight Zone</a></li>
+
+        <li class="dropdown">
+            <a href="#">Activity Archive ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Association</a></li>
+                <li><a href="#">Coding Club</a></li>
+            </ul>
+        </li>
+
+        <li><a href="#">Reach Us</a></li>
+    </ul>
+</nav>
+
+<!-- ===== FACULTY HERO ===== -->
+<section class="faculty-hero">
+    <h2>Our Faculty</h2>
+    <p>Experienced & Dedicated Teaching Members of BCA</p>
+</section>
+
+<!-- ===== FACULTY LIST ===== -->
+<div class="faculty-container">
+
+    <div class="faculty-card">
+        <img src="images/anusiya.jpg">
+        <div class="faculty-info">
+            <h3>Mrs. Anusiya</h3>
+            <p class="designation">Assistant Professor</p>
+            <p><strong>Department:</strong> Computer Applications</p>
+            <p><strong>Email:</strong> anusiya@college.edu</p>
+        </div>
+        <a class="profile-btn" href="#" onclick="openProfile('anusiyaprofile.html')">View Profile</a>
+    </div>
+
+    <div class="faculty-card">
+        <img src="images/kavia.jpg">
+        <div class="faculty-info">
+            <h3>Mrs. Kavia</h3>
+            <p class="designation">Assistant Professor</p>
+            <p><strong>Department:</strong> Computer Applications</p>
+            <p><strong>Email:</strong> kavia@college.edu</p>
+        </div>
+        <a class="profile-btn" href="#" onclick="openProfile('kaviaprofile.html')">View Profile</a>
+    </div>
+
+    <div class="faculty-card">
+        <img src="images/kamali.jpg">
+        <div class="faculty-info">
+            <h3>Ms. Kamali</h3>
+            <p class="designation">Assistant Professor</p>
+            <p><strong>Department:</strong> Computer Applications</p>
+            <p><strong>Email:</strong> kamali@college.edu</p>
+        </div>
+        <a class="profile-btn" href="#" onclick="openProfile('kamaliprofile.html')">View Profile</a>
+    </div>
+
+    <div class="faculty-card">
+        <img src="images/abarna.jpg">
+        <div class="faculty-info">
+            <h3>Mrs. Abarna</h3>
+            <p class="designation">Assistant Professor</p>
+            <p><strong>Department:</strong> Computer Applications</p>
+            <p><strong>Email:</strong> abarna@college.edu</p>
+        </div>
+        <a class="profile-btn" href="#" onclick="openProfile('abarnaprofile.html')">View Profile</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>Department of Computer Applications © 2025</p>
+</footer>
+
+<!-- ===== SIDE PROFILE PANEL ===== -->
+<div id="sideProfile" class="side-profile">
+    <span class="close" onclick="closeProfile()">×</span>
+    <iframe id="profileFrame"></iframe>
+</div>
+
+<script>
+function openProfile(page) {
+    document.getElementById("profileFrame").src = page;
+    document.getElementById("sideProfile").style.right = "0";
+}
+function closeProfile() {
+    document.getElementById("sideProfile").style.right = "-450px";
+}
+</script>
+
+</body>
+</html>

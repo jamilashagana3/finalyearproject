@@ -1,0 +1,100 @@
+*{
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial;
+}
+
+body{
+    background:linear-gradient(135deg,#0b3c5d,#cfa34a);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.card{
+    width:390px;
+    background:#fff;
+    padding:32px;
+    border-radius:16px;
+    box-shadow:0 20px 40px rgba(0,0,0,.3);
+}
+
+.brand{
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+    color:#0b3c5d;
+    margin-bottom:20px;
+}
+
+h2{
+    margin-bottom:18px;
+    color:#08324f;
+}
+
+.field{
+    position:relative;
+    margin-bottom:16px;
+}
+
+.field input,
+.field select{
+    width:100%;
+    padding:14px 12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.field label{
+    position:absolute;
+    top:-9px;
+    left:12px;
+    background:#fff;
+    padding:0 6px;
+    font-size:12px;
+    color:#555;
+}
+
+button{
+    width:100%;
+    padding:13px;
+    background:linear-gradient(135deg,#cfa34a,#f6c453);
+    color:#08324f;
+    border:none;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+button:disabled{
+    background:#e0c58a;
+    cursor:not-allowed;
+}
+
+.switch{
+    margin-top:15px;
+    font-size:14px;
+}
+
+.switch span{
+    color:#0b3c5d;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.hidden{
+    display:none;
+}
+
+.error{
+    font-size:12px;
+    color:red;
+}
+
+.success{
+    font-size:13px;
+    color:green;
+    text-align:center;
+    margin-bottom:10px;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DCA Portal</title>
+ <link rel="stylesheet" href="../main_signup_and_signin/register.css">
+</head>
+<body>
+
+<div class="card">
+    <div class="brand">DCA Portal</div>
+
+    <!-- SIGN IN -->
+    <div id="signin">
+        <h2>Sign in</h2>
+
+        <div class="field">
+            <label>Role</label>
+            <select id="loginRole" required>
+                <option value="" hidden>Choose Role</option>
+                <option value="staff">Staff</option>
+                <option value="hod">HOD</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label>Username</label>
+            <input type="text" id="loginUser">
+        </div>
+
+        <div class="field">
+            <label>Password</label>
+            <input type="password" id="loginPass">
+        </div>
+
+        <button onclick="login()">Sign in</button>
+
+        <div class="switch">
+            Don’t have an account?
+            <span onclick="showSignup()">Sign up</span>
+        </div>
+    </div>
+
+    <!-- SIGN UP -->
+    <div id="signup" class="hidden">
+        <h2>Sign up</h2>
+        <div id="msg" class="success"></div>
+
+        <div class="field">
+            <label>Role</label>
+            <select id="role" onchange="roleChange()" required>
+                <option value="" hidden>Choose Role</option>
+                <option value="staff">Staff</option>
+                <option value="hod">HOD</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label>Full Name</label>
+            <input type="text" id="name">
+        </div>
+
+        <div class="field hidden" id="staffBox">
+            <label>Staff ID</label>
+            <input type="text" id="staffId">
+        </div>
+
+        <div class="field hidden" id="hodBox">
+            <label>HOD ID</label>
+            <input type="text" id="hodId">
+        </div>
+
+        <div class="field">
+            <label>Email</label>
+            <input type="email" id="email" onkeyup="validateEmail()">
+            <div id="emailErr" class="error"></div>
+        </div>
+
+        <div class="field">
+            <label>Username</label>
+            <input type="text" id="user">
+        </div>
+
+        <div class="field">
+            <label>Password</label>
+            <input type="password" id="pass" onkeyup="validatePass()">
+            <div id="passErr" class="error"></div>
+        </div>
+
+        <div class="field">
+            <label>Secret Code</label>
+            <input type="password" id="secret">
+        </div>
+
+        <button id="signupBtn" onclick="register()" disabled>Sign up</button>
+
+        <div class="switch">
+            Already have an account?
+            <span onclick="showSignin()">Sign in</span>
+        </div>
+    </div>
+</div>
+
+<script src="../main_signup_and_signin/register.js"></script>
+</body>
+</html>

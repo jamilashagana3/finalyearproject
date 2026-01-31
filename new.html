@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DCA Portal</title>
+
+<style>
+*{box-sizing:border-box;font-family:Segoe UI,Arial;}
+body{
+    background:linear-gradient(135deg,#1a73e8,#e8f0fe);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.card{
+    width:390px;
+    background:#fff;
+    padding:32px;
+    border-radius:14px;
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+.brand{
+    text-align:center;
+    font-size:22px;
+    font-weight:600;
+    color:#1a73e8;
+    margin-bottom:20px;
+}
+h2{margin-bottom:18px;}
+.field{
+    position:relative;
+    margin-bottom:16px;
+}
+.field input,.field select{
+    width:100%;
+    padding:14px 12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:14px;
+}
+.field label{
+    position:absolute;
+    top:-9px;
+    left:12px;
+    background:#fff;
+    padding:0 6px;
+    font-size:12px;
+    color:#555;
+}
+button{
+    width:100%;
+    padding:13px;
+    background:#1a73e8;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:15px;
+    cursor:pointer;
+}
+button:disabled{
+    background:#9bbcf5;
+    cursor:not-allowed;
+}
+.switch{
+    margin-top:15px;
+    font-size:14px;
+}
+.switch span{
+    color:#1a73e8;
+    cursor:pointer;
+    font-weight:500;
+}
+.hidden{display:none;}
+.error{
+    font-size:12px;
+    color:red;
+}
+.success{
+    font-size:13px;
+    color:green;
+    text-align:center;
+    margin-bottom:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<div class="brand">DCA Portal</div>
+
+<!-- ===== SIGN IN ===== -->
+<div id="signin">
+<h2>Sign in</h2>
+
+<div class="field">
+<label>Role</label>
+<select id="loginRole">
+<option value="staff">Staff</option>
+<option value="hod">HOD</option>
+</select>
+</div>
+
+<div class="field">
+<label>Username</label>
+<input type="text" id="loginUser">
+</div>
+
+<div class="field">
+<label>Password</label>
+<input type="password" id="loginPass">
+</div>
+
+<button onclick="login()">Sign in</button>
+
+<div class="switch">
+Don’t have an account? <span onclick="showSignup()">Sign up</span>
+</div>
+</div>
+
+<!-- ===== SIGN UP ===== -->
+<div id="signup" class="hidden">
+<h2>Sign up</h2>
+<div id="msg" class="success"></div>
+
+<div class="field">
+<label>Role</label>
+<select id="role" onchange="roleChange()">
+<option value="">Select</option>
+<option value="staff">Staff</option>
+<option value="hod">HOD</option>
+</select>
+</div>
+
+<div class="field">
+<label>Full Name</label>
+<input type="text" id="name">
+</div>
+
+<div class="field hidden" id="staffBox">
+<label>Staff ID</label>
+<input type="text" id="staffId">
+</div>
+
+<div class="field hidden" id="hodBox">
+<label>HOD ID</label>
+<input type="text" id="hodId">
+</div>
+
+<div class="field">
+<label>Email</label>
+<input type="email" id="email" onkeyup="validateEmail()">
+<div id="emailErr" class="error"></div>
+</div>
+
+<div class="field">
+<label>Username</label>
+<input type="text" id="user">
+</div>
+
+<div class="field">
+<label>Password</label>
+<input type="password" id="pass" onkeyup="validatePass()">
+<div id="passErr" class="error"></div>
+</div>
+
+<div class="field">
+<label>Secret Code</label>
+<input type="password" id="secret">
+</div>
+
+<button id="signupBtn" onclick="register()" disabled>Sign up</button>
+
+<div class="switch">
+Already have an account? <span onclick="showSignin()">Sign in</span>
+</div>
+</div>
+
+</div>
+
+<script>
+function showSignup(){
+    signin.classList.add("hidden");
+    signup.classList.remove("hidden");
+
+    // reset signup form
+    role.value="";
+    name.value="";
+    staffId.value="";
+    hodId.value="";
+    email.value="";
+    user.value="";
+    pass.value="";
+    secret.value="";
+    emailErr.textContent="";
+    passErr.textContent="";
+    msg.textContent="";
+    signupBtn.disabled=true;
+    staffBox.classList.add("hidden");
+    hodBox.classList.add("hidden");
+}
+
+function showSignin(){
+    signup.classList.add("hidden");
+    signin.classList.remove("hidden");
+}
+
+function roleChange(){
+    staffBox.classList.add("hidden");
+    hodBox.classList.add("hidden");
+    if(role.value==="staff") staffBox.classList.remove("hidden");
+    if(role.value==="hod") hodBox.classList.remove("hidden");
+}
+
+function validateEmail(){
+    emailErr.textContent = email.value.includes("@") ? "" : "Email must contain @";
+    checkForm();
+}
+
+function validatePass(){
+    passErr.textContent = pass.value.length>=8 ? "" : "Password must be at least 8 characters";
+    checkForm();
+}
+
+function checkForm(){
+    signupBtn.disabled = !(email.value.includes("@") && pass.value.length>=8);
+}
+
+function register(){
+    if(!role.value || !user.value || !secret.value){
+        alert("Please fill all required fields");
+        return;
+    }
+
+    if(localStorage.getItem(user.value)){
+        alert("Username already exists");
+        return;
+    }
+
+    let data={
+        role:role.value,
+        username:user.value,
+        password:pass.value
+    };
+
+    localStorage.setItem(user.value, JSON.stringify(data));
+
+    // ✅ success message
+    msg.textContent = "Registered successfully ✔ Please sign in.";
+
+    // redirect to login
+    setTimeout(()=>{
+        showSignin();
+    },1500);
+}
+
+function login(){
+    let u=loginUser.value;
+    let p=loginPass.value;
+    let r=loginRole.value;
+
+    let data=localStorage.getItem(u);
+    if(!data){
+        alert("Account not found. Please Sign up.");
+        return;
+    }
+
+    let d=JSON.parse(data);
+    if(d.password===p && d.role===r){
+        alert("Login Successful 🎉");
+        loginUser.value="";
+        loginPass.value="";
+    }else{
+        alert("Invalid credentials");
+    }
+}
+</script>
+
+</body>
+</html>
